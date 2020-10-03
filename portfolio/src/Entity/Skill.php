@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\SkillRepository;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\SkillRepository;
+
 
 /**
  * @ORM\Entity(repositoryClass=SkillRepository::class)
@@ -19,11 +22,19 @@ class Skill
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Ce champs ne peut pas être vide.")
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\NotBlank(message="Ce champs ne peut pas être vide.")
+     * @Assert\Range(
+     *     min=1,
+     *     max=10,
+     *     minMessage="Le niveau doit être supérieur ou égal à 1",
+     *     maxMessage="Le niveau doit être inférieur ou égal à 10"
+     * )
      */
     private $level;
 

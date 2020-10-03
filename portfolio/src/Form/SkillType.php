@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Skill;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,19 +14,18 @@ class SkillType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('name', TextType::class,[
-            'label' => "Nom de la compétence",
-            'attr' => [
-                'placeholder' => 'Entrez le nom de la compétence'
-                ]
+        ->add("name", TextType::class, [
+            "label" => "Nom de la compétence :",
+            "attr" => [
+                "placeholder" => "Entrez le nom de la compétence..."
+            ]
         ])
-        ->add('label', RangeType::class,[
-            'label' => "Votre niveau",
-            'attr' => [
-                'min' => 1,
-                'max' => 10
-                ]
-
+        ->add("level", RangeType::class, [
+            "label" => "Votre niveau :",
+            "attr" => [
+                "min" => 1,
+                "max" => 10
+            ]
         ])
         ;
     }
@@ -33,7 +33,7 @@ class SkillType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Skill::class,
         ]);
     }
 }

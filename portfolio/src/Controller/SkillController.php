@@ -2,34 +2,53 @@
 
 namespace App\Controller;
 
+use App\Entity\Skill;
+use App\Form\SkillType;
 use App\Repository\SkillRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
 
 class SkillController extends AbstractController
 {
     /**
-     * @Route("/", name="skill")
+     * @Route("/manage", name="manage")
      */
     public function manage(SkillRepository $skillRepository) 
     {
         $skills = $skillRepository->findAll();
 
-
         return $this->render('manage.html.twig', [
-            'skills' => $skills,
+            'skills' => $skills
         ]);
     }
+
+    /**
+     * @Route("/create", name="create")
+     */
 
     public function create(Request $request) 
     {
-        return $this->render('skill/index.html.twig', [
-            'controller_name' => 'SkillController',
+        $skill = new Skill();
+        $form = $this->createForm(SkillType::class, $skill)->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($skill);
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash(
+                'success',
+                'La compétence a ét ajoutée avec succés'
+            );
+
+            return $this->redirectToRoute ('manage');
+        }
+
+        return $this->render('create.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 
-    public function update()
+    /* public function update()
     {
         return $this->render('skill/index.html.twig', [
             'controller_name' => 'SkillController',
@@ -41,5 +60,5 @@ class SkillController extends AbstractController
         return $this->render('skill/index.html.twig', [
             'controller_name' => 'SkillController',
         ]);
-    }
+    } */
 }
