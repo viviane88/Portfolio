@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Portfolio{% endblock %}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-	<body>
-		 <main>
-            <div class="container mt-4">
-                {% block body %}{% endblock %}
-            </div>
-        </main>
+	<head>
+		<meta charset="UTF-8">
+ 		<title>
+			{% block title %}Portfolio
+			{% endblock %}
+		</title>
 
-	    {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </body>
-</html>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+	</head>
+
+	<body>
+		<main>
+			<div class="container mt-4"> {% block body %}{% endblock %}
+				</div>
+			</main>
+
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</body>
+	</html>

@@ -14,7 +14,7 @@ class SkillController extends AbstractController
     /**
      * @Route("/manage", name="manage")
      */
-    public function manage(SkillRepository $skillRepository) 
+    public function manage(SkillRepository $skillRepository)
     {
         $skills = $skillRepository->findAll();
 
@@ -27,20 +27,20 @@ class SkillController extends AbstractController
      * @Route("/create", name="create")
      */
 
-    public function create(Request $request) 
+    public function create(Request $request)
     {
         $skill = new Skill();
         $form = $this->createForm(SkillType::class, $skill)->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->persist($skill);
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash(
                 'success',
-                'La compétence a ét ajoutée avec succés'
+                'La compétence a été ajoutée avec succés'
             );
 
-            return $this->redirectToRoute ('manage');
+            return $this->redirectToRoute('manage');
         }
 
         return $this->render('create.html.twig', [
@@ -48,17 +48,51 @@ class SkillController extends AbstractController
         ]);
     }
 
-    /* public function update()
-    {
-        return $this->render('skill/index.html.twig', [
-            'controller_name' => 'SkillController',
-        ]);
-    }
+    /**
+     * @Route("/update-{id}", name="update")
+     */
 
-    public function delete()
+    public function updateSkill(SkillRepository $skillRepository, $id, Request $request)
     {
-        return $this->render('skill/index.html.twig', [
-            'controller_name' => 'SkillController',
+        $skill = $skillRepository->find($id);
+
+        $form = $this->createForm(SkillType::class, $skill)->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($skill);
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash(
+                'success',
+                'La compétence a été ajoutée avec succés'
+            );
+
+            return $this->redirectToRoute('manage');
+        }
+
+
+        return $this->render('create.html.twig', [
+            'form' => $form->createView(),
         ]);
-    } */
+            
+        }
+
+        
+    
+
+  /**
+     * @Route("/delete-{id}", name="delete")
+     */
+    public function deleteSkill(SkillRepository $skillRepository, $id)
+    {
+        $skill = $skillRepository->find($id);
+
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($skill);
+        $manager->flush();
+
+        return $this->redirectToRoute('manage');
+    }
+        
+
+  
 }
