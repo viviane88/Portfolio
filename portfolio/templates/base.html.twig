@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
- 		<title>
+		<title>
 			{% block title %}Portfolio
 			{% endblock %}
 		</title>
@@ -10,6 +10,10 @@
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		<script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 	</head>
 
 	<body>
