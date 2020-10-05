@@ -38,7 +38,7 @@ class FormationType extends AbstractType
                 "Bac+5" => 4
             ]
         ])
-        ->add("description", DateType::class, [
+        ->add("description", TextType::class, [
             "label" => "Description de la formation",
             "attr" => [
                 "placeholder" => "Entrez la description de votre formation..."

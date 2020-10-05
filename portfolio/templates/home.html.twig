@@ -2,91 +2,93 @@
 
 {% block body %}
 
-{{ parent() }}
-<main>
+	{{ parent() }}
 
-		
-			<div class="container ">
+	<main>
 
 
-				<div class="row py-5">
-					<div class="col-12">
-						<h3>Projets</h3>
+		<div class="container ">
+
+
+			<div class="row ">
+				<div class="col-12 p-5">
+					<h3>Projets</h3>
+				</div>
+			</div>
+
+			<div class="card-deck p-5">
+				<div class="card">
+					<img class="card-img-top" src="{{ asset('image/img1.jpg') }} " alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Projet 1</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 					</div>
+
+				</div>
+				<div class="card ">
+					<img class="card-img-top" src="{{ asset('image/img2.jpg') }}" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Projet 2</h5>
+						<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+					</div>
+
+				</div>
+				<div class="card">
+					<img class="card-img-top" src="{{ asset('image/img3.jpg') }}" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Projet 3</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+					</div>
+
 				</div>
 
-				<div class="card-deck">
+			</div>
+			<div class="row py-5">
+				<div class="col-12 text-center">
+					<button type="button" class="btn btn-outline-info">Voir toutes les projets</button>
+				</div>
+			</div>
+
+			<div class="dropdown-divider "></div>
+			<div class="row py-5">
+
+				<div class="col-12">
+					<h3>Mes Compétences</h3>
+				</div>
+
+				<div class="col-6">
 					<div class="card">
-						<img class="card-img-top" src="..." alt="Card image cap">
+
 						<div class="card-body">
-							<h5 class="card-title">Projet 1</h5>
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+							<h5 class="card-title">Nom:
+							</h5>
 						</div>
 
-					</div>
-					<div class="card">
-						<img class="card-img-top" src="..." alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">Projet 2</h5>
-							<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Niveau :
+							</li>
 
-					</div>
-					<div class="card">
-						<img class="card-img-top" src="..." alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">Projet 3</h5>
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-						</div>
+						</ul>
 
-					</div>
 
-				</div>
-				<div class="row py-5">
-					<div class="col-12 text-center">
-						<button type="button" class="btn btn-outline-info">Voir toutes les projets</button>
 					</div>
 				</div>
+			</div>
+			<div class="dropdown-divider "></div>
 
-				<div class="dropdown-divider "></div>
-				<div class="row py-5">
-
-					<div class="col-12">
-						<h3>Mes Compétences</h3>
-					</div>
-					 <div class="col-6">
-                <div class="card">
-
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">Nom:</h5>
-                    </div>
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Niveau : </li>
-                        
-                    </ul>
-
-
-
-                </div>
-            </div>
+			<div class="row py-5">
+				<div class="col-12">
+					<h3>A propos</h3>
 				</div>
-				<div class="dropdown-divider "></div>
+			</div>
+			<div class="dropdown-divider "></div>
 
-				<div class="row py-5">
-					<div class="col-12">
-						<h3>A propos</h3>
-					</div>
+			<div class="row py-5">
+				<div class="col-12">
+					<h3>Me contacter</h3>
 				</div>
-				<div class="dropdown-divider "></div>
+			</div>
 
-				<div class="row py-5">
-					<div class="col-12">
-						<h3>Me contacter</h3>
-					</div>
-				</div>
-				
 
-			</main>
-{% endblock %}
+		</main>
+	{% endblock %}

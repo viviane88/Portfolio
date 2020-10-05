@@ -24,8 +24,7 @@
 
 		{% block body %}
 
-			<header class="bg-dark my-auto">
-
+			<header class="bg-dark my-auto p-5">
 				<h1 class="text-center">Viviane Janer</h1>
 				<h2 class="text-center mb-5">Développeur Web</h2>
 			</header>
@@ -41,23 +40,19 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path("home") }}">Accueil</a>
-							</li>
+							
 							<li class="nav-item">
 								<a class="nav-link" href="">Compétences</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="">Formations</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="">Projet</a>
-							</li>
+							
 							<li class="nav-item">
 								<a class="nav-link" href="">Me contacter</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="">Admin Connexion</a>
+							<li class="nav-item ">
+								<a class="nav-link" href="{{ path('app_register') }}">Admin Connexion</a>
 							</li>
 
 						</ul>
