@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Portfolio">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portfolio</title>
+
+		<link rel="stylesheet" href="{{ asset('css/portfolio.css') }}">
+
+
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		<script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	</head>
+
+
+	<body>
+
+
+			<div class="container-fluid m-0 p-0">
+				<div class="jumbotron mb-0 text-center">
+					<h1>Potfolio-espace administrateur</h1>
+					<p>Bienvenue sur l'espace administrateur</p>
+				</div>
+			</div>
+
+		{% block body %}{% endblock %}
+
+
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</body>
+</html>

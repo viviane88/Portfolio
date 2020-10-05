@@ -1,8 +1,8 @@
   
-{% extends "base.html.twig" %}
+{% extends "baseAdmin.html.twig" %}
 
 {% block body %}
-    <div class="row justify-content-center">
+    <div class="row justify-content-center p-5">
         <div class="col-12 col-md-8 col-lg-6 col-xl-4">
             {% include '_form.html.twig' with { form: form, title: "Créer une nouvelle compétence", action: "Créer" } %}
         </div>
